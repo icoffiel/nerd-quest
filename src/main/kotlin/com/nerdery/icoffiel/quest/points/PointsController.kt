@@ -16,17 +16,18 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/points")
 class PointsController {
 
-    @Value("\${apiKey}")
-    lateinit private var apiKey: String
     private val jsonLog = LoggerFactory.getLogger("json")
 
+    @Value("\${apiKey}")
+    lateinit private var apiKey: String
+
     @GetMapping
-    fun getPoints(): PointsResponse? {
+    fun getPoints(): PointsGetResponse? {
         val (request, response, result) =
                 "http://nerdquest.nerderylabs.com:1337/points"
                         .httpGet()
                         .header(mapOf("apiKey" to apiKey))
-                        .responseObject(PointsResponse.Deserializer())
+                        .responseObject(PointsGetResponse.Deserializer())
 
         jsonLog.debug(request.toString())
         jsonLog.debug(response.toString())

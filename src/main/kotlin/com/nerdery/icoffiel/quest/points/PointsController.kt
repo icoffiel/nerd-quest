@@ -18,7 +18,7 @@ class PointsController {
 
     @Value("\${apiKey}")
     lateinit private var apiKey: String
-    private val log = LoggerFactory.getLogger(PointsController::class.java)
+    private val jsonLog = LoggerFactory.getLogger("json")
 
     @GetMapping
     fun getPoints(): PointsResponse? {
@@ -27,6 +27,9 @@ class PointsController {
                         .httpGet()
                         .header(mapOf("apiKey" to apiKey))
                         .responseObject(PointsResponse.Deserializer())
+
+        jsonLog.debug(request.toString())
+        jsonLog.debug(response.toString())
 
         return when(result) {
             is Result.Success -> result.getAs()

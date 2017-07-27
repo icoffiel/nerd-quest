@@ -1,7 +1,9 @@
 <configuration>
 
-    <appender name="JSON"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+  <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+              name="JSON">
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
         </encoder>
@@ -15,17 +17,8 @@
         </triggeringPolicy>
     </appender>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <logger name="json" level="DEBUG">
+    <logger level="DEBUG" name="json">
         <appender-ref ref="JSON" />
     </logger>
 
-    <root level="debug">
-        <appender-ref ref="STDOUT" />
-    </root>
 </configuration>

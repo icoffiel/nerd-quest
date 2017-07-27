@@ -1,3 +1,12 @@
 spring:
   jackson:
     serialization-inclusion
+  data:
+    mongodb:
+      host: ds127163.mlab.com
+      port: 27163
+      username: nerdquest
+      password: ${mongopassword}
+      database: nerdquest
+logging:
+  file: nerdquest.log

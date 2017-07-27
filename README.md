@@ -2,5 +2,5 @@
 ## Running
 To run the game the following gradle command can be performed:
 ```
-gradlew bootRun -PjvmArgs="-DapiKey=my-api-key"
+gradlew bootRun -PjvmArgs="-DapiKey=my-api-key  -Dmongopassword=password"
 ```

@@ -1,0 +1,5 @@
+spring:
+  jackson:
+    serialization-inclusion
+logging:
+  file: nerdquest.log

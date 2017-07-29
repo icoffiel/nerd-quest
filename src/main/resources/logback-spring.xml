@@ -9,7 +9,7 @@
         </encoder>
         <file>json.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-            <fileNamePattern>${LOG_FILE}.%i</fileNamePattern>
+            <fileNamePattern>json.log.%i</fileNamePattern>
         </rollingPolicy>
         <triggeringPolicy
                 class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">

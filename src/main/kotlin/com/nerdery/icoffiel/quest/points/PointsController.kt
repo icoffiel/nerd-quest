@@ -3,6 +3,7 @@ package com.nerdery.icoffiel.quest.points
 import com.github.kittinunf.result.Result
 import com.github.kittinunf.result.getAs
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -28,6 +29,6 @@ class PointsController @Autowired constructor(val pointsService: PointsService) 
     @PostMapping
     fun postPoints(): PointsPostResponse? = pointsService.postPoints()
 
-//    @Scheduled(fixedDelay = 1200)
-//    fun pointsPostPoller() = pointsService.postPoints()
+    @Scheduled(fixedDelay = 1200)
+    fun pointsPostPoller() = pointsService.postPoints()
 }
